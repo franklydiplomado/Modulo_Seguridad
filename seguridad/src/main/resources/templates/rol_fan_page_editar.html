@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Rol</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="tarjeta-contenedor">
+        <div class="cabecera-logo">
+        <img th:src="@{/Imágenes/logo.png}" alt="Logo de la red social" class="img-fluid w-25">
+        <h1 class="text-lg font-bold">Editar Rol Fan Page</h1>
+    </div>
+    <div class="contenido-principal">
+        <h2 class="titulo-seccion">Detalle Rol Fan Page Editar</h2>
+        
+        <form th:action="@{/rol_fan_page_editar}" th:object="${rolfanpage}" method="post">
+
+                <input type="hidden" th:field="*{cod_rol_fan}">
+
+                <div class="mb-3">
+                    <label for="persona" class="form-label">Usuario:</label>
+                    <select id="persona" name="persona" class="form-select">
+                        <option value="">Seleccione...</option>
+                        <th:block th:each="persona : ${personas}">
+                            <option 
+                                th:value="${persona.cod_per}" 
+                                th:text="${persona.nm1_per + ' ' + persona.ap1_per}"
+                                th:selected="${rolfanpage.persona != null and rolfanpage.persona.cod_per == persona.cod_per}">
+                            </option>
+                        </th:block>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="fan_page" class="form-label">Fan Page:</label>
+                    <select id="fan_page" name="fan_page" class="form-select">
+                        <option value="">Seleccione...</option>
+                        <th:block th:each="fanpage : ${fanpages}">
+                            <option 
+                                th:value="${fanpage.cod_fan_pag}" 
+                                th:text="${fanpage.nom_fan_pag}"
+                                th:selected="${rolfanpage.fan_page != null and rolfanpage.fan_page.cod_fan_pag == fanpage.cod_fan_pag}">
+                            </option>
+                        </th:block>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="rol" class="form-label">Rol:</label>
+                    <select id="rol" name="rol" class="form-select">
+                        <option value="">Seleccione...</option>
+                        <th:block th:each="rol : ${roles}">
+                            <option 
+                                th:value="${rol.cod_rol}" 
+                                th:text="${rol.nom_rol}"
+                                th:selected="${rolfanpage.rol != null and rolfanpage.rol.cod_rol == rol.cod_rol}">
+                            </option>
+                        </th:block>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="est_rol_fan" class="etiqueta">Estatus</label>
+                    <select id="est_rol_fan" name="est_rol_fan"  th:field="*{est_rol_fan}" class="form-select cursor-pointer">
+                        <option value="">Seleccione...</option>
+                        <option value="A">Activo</option>
+                        <option value="I">Inactivo</option>
+                    </select>
+                    <span class="error-message"></span>
+                </div>
+        </div>
+
+            <div class="contenedor-botones">
+                <button type="submit" class="boton-accion">Editar</button>
+                <a th:href='@{/rol_fan_page}' class="boton-secundario">Volver</a>
+            </div>
+
+            </div> 
+        </form>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
+</body>
+</html> 
