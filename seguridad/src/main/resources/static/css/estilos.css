@@ -10,7 +10,7 @@ button {
 
 body {
     font-family: sans-serif;
-    background-color: #f3f4f6;
+    background-color: #f1f5f9;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,7 +24,7 @@ body {
     max-width: 900px; 
     width: 100%;
     border-radius: 1.5rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.2);
     overflow: hidden;
     background-color: white;
     margin-bottom: 20px;
@@ -38,7 +38,7 @@ body {
 
 
 .cabecera-logo {
-    background-image: linear-gradient(to right, #cd07ec 0%, #f977ee 100%);
+    background-image: linear-gradient(to right, #0f172a 0%, #1d4ed8 100%);
     padding: 1.5rem;
     text-align: center;
     display: flex;
@@ -63,7 +63,7 @@ body {
 
 .contenido-principal {
     padding: 1.5rem;
-    background-color: #f9fafb;
+    background-color: #f8fafc;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,7 +75,7 @@ body {
     text-align: center;
     font-weight: 700;
     padding: 0.75rem 1.5rem;
-    background-image: linear-gradient(to right, #cd07ec 0%, #f977ee 100%);
+    background-image: linear-gradient(to right, #1e40af 0%, #2563eb 100%);
     color: white;
     border-radius: 9999px;
     margin-bottom: 1.5rem;
@@ -102,7 +102,7 @@ body {
 
 .etiqueta {
     display: block;
-    color: #4b5563;
+    color: #334155;
     font-weight: 600;
     margin-bottom: 0.25rem;
     text-align: left;
@@ -111,7 +111,7 @@ body {
 .entrada {
     width: 100%;
     padding: 0.5rem 1rem;
-    border: 1px solid #d1d5db;
+    border: 1px solid #cbd5e1;
     border-radius: 0.5rem;
     outline: none;
     box-sizing: border-box;
@@ -119,8 +119,8 @@ body {
 }
 
 .entrada:focus {
-    border-color: #cd07ec;
-    box-shadow: 0 0 0 2px rgba(205, 7, 236, 0.3);
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
 }
 
 
@@ -138,8 +138,8 @@ body {
     color: white;
     font-weight: 600;
     font-size: 0.95rem;
-    background-image: linear-gradient(to right, #cd07ec 0%, #f977ee 100%);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(to right, #1e40af 0%, #2563eb 100%);
+    box-shadow: 0 4px 6px rgba(30, 64, 175, 0.2);
     text-decoration: none;
     border: none;
     cursor: pointer;
@@ -148,18 +148,18 @@ body {
 
 .boton-accion:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px rgba(205, 7, 236, 0.3);
+    box-shadow: 0 10px 15px rgba(37, 99, 235, 0.35);
 }
 
 
 .boton-secundario, .boton-volver {
     padding: 0.6rem 1.5rem;
     border-radius: 9999px;
-    color: #222;
+    color: #334155;
     font-weight: 600;
     font-size: 0.95rem;
-    background: linear-gradient(to right, #bfc4ca 0%, #e5e7eb 100%);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #e2e8f0 0%, #f1f5f9 100%);
+    box-shadow: 0 4px 6px rgba(15, 23, 42, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     border: none;
@@ -168,7 +168,7 @@ body {
 
 .boton-secundario:hover, .boton-volver:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 15px rgba(15, 23, 42, 0.15);
 }
 
 
@@ -185,7 +185,7 @@ table {
 }
 
 thead {
-    background: linear-gradient(to right, #cd07ec 0%, #f977ee 100%);
+    background: linear-gradient(to right, #0f172a 0%, #1d4ed8 100%);
     color: white;
 }
 
@@ -194,12 +194,12 @@ th, td {
     text-align: center;
 }
 
-tbody tr:nth-child(even) { background-color: #fdf2ff; }
-tbody tr:hover { background-color: #f3e8f5; }
+tbody tr:nth-child(even) { background-color: #f8fafc; }
+tbody tr:hover { background-color: #eff6ff; }
 
 
 .boton-accion-tabla {
-    color: #cd07ec;
+    color: #2563eb;
     font-weight: bold;
     text-decoration: none;
     font-size: 1.2rem;
@@ -208,9 +208,9 @@ tbody tr:hover { background-color: #f3e8f5; }
 
 
 .error {
-    color: #9d05b5; 
-    background-color: #fff0ff;
-    border: 1px solid #f977ee;
+    color: #b91c1c; 
+    background-color: #fef2f2;
+    border: 1px solid #fca5a5;
     padding: 6px 10px; 
     margin-top: 5px; 
     font-size: 0.9em; 
@@ -221,8 +221,8 @@ tbody tr:hover { background-color: #f3e8f5; }
 }
 
 .invalida {
-    border: 2px solid #f977ee !important; 
-    box-shadow: 0 0 5px rgba(249, 119, 238, 0.5); 
+    border: 2px solid #ef4444 !important; 
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.35); 
 }
 
 @keyframes fadeIn {

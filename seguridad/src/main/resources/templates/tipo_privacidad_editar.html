@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Tipo Privacidad</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+    <div class="tarjeta-contenedor">
+        <div class="cabecera-logo">
+            <img th:src="@{/Imágenes/logo.png}" alt="Logo de la red social" class="img-fluid w-25">
+            <h1>Editar Tipo Privacidad</h1>
+        </div>
+        <div class="contenido-principal">
+            <h2 class="titulo-seccion">Editar Tipo Privacidad</h2>
+
+            <form th:action="@{/tipo_privacidad_editar}" th:object="${tipo}" class="formulario" method="post">
+                <div style="max-width: 600px; width: 100%; margin: 0 auto;">
+                    <div class="rejilla-formulario">
+                        <div class="campo">
+                            <input type="hidden" th:field="*{cod_tip}" />
+                            <label for="nom_tip" class="etiqueta">Nombre Del Tipo Privacidad</label>
+                            <input type="text" id="nom_tip" th:field="*{nom_tip}" class="entrada" required maxlength="100" />
+                        </div>
+                        <div class="campo">
+                            <label for="est_tip" class="etiqueta">Estatus</label>
+                            <select id="est_tip" th:field="*{est_tip}" class="entrada" required>
+                                <option value=""></option>
+                                <option value="A">Activo</option>
+                                <option value="I">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="contenedor-botones">
+                        <button type="submit" class="boton-accion">Editar</button>
+                        <a th:href="@{/tipo_privacidad_listar}" class="boton-secundario">Volver</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

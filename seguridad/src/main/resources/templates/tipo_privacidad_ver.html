@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Tipo Privacidad</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+    <div class="tarjeta-contenedor">
+        <div class="cabecera-logo">
+            <img th:src="@{/Imágenes/logo.png}" alt="Logo de la red social" class="img-fluid w-25">
+            <h1>Detalle Tipo Privacidad</h1>
+        </div>
+        <div class="contenido-principal">
+            <h2 class="titulo-seccion">Detalle Tipo Privacidad</h2>
+
+            <form th:object="${tipo}" class="formulario" onsubmit="return false;">
+                <div style="max-width: 600px; width: 100%; margin: 0 auto;">
+                    <div class="rejilla-formulario">
+                        <div class="campo">
+                            <label class="etiqueta">Código</label>
+                            <input type="text" th:field="*{cod_tip}" class="entrada" readonly />
+                        </div>
+                        <div class="campo">
+                            <label for="nom_tip" class="etiqueta">Nombre Del Tipo Privacidad</label>
+                            <input type="text" id="nom_tip" th:field="*{nom_tip}" class="entrada" readonly />
+                        </div>
+                        <div class="campo">
+                            <label for="est_tip" class="etiqueta">Estatus</label>
+                            <select id="est_tip" th:field="*{est_tip}" class="entrada" disabled>
+                                <option value=""></option>
+                                <option value="A">Activo</option>
+                                <option value="I">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="contenedor-botones">
+                        <a th:href="@{/tipo_privacidad_listar}" class="boton-secundario">Cerrar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

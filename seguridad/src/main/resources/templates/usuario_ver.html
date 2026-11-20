@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Usuario</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+    <div class="tarjeta-contenedor">
+        <div class="cabecera-logo">
+            <img th:src="@{/Imágenes/logo.png}" alt="Logo de la red social" class="img-fluid w-25">
+            <h1>Detalle Usuario</h1>
+        </div>
+        <div class="contenido-principal">
+            <h2 class="titulo-seccion">Detalle Usuario</h2>
+            <form th:object="${usuario}" class="formulario" onsubmit="return false;">
+                <div style="max-width: 600px; width: 100%; margin: 0 auto;">
+                    <div class="rejilla-formulario">
+                        <div class="campo">
+                            <label class="etiqueta">Código</label>
+                            <input type="text" th:field="*{cod_usu}" class="entrada" readonly />
+                        </div>
+                        <div class="campo">
+                            <label class="etiqueta">Alias Del Usuario</label>
+                            <input type="text" th:field="*{ali_usu}" class="entrada" readonly />
+                        </div>
+                        <div class="campo">
+                            <label class="etiqueta">Email Del Usuario</label>
+                            <input type="text" th:field="*{ema_usu}" class="entrada" readonly />
+                        </div>
+                        <div class="campo">
+                            <label class="etiqueta">Clave</label>
+                            <input type="text" th:value="${usuario.getClaUsuMascara()}" class="entrada" readonly />
+                        </div>
+                        <div class="campo">
+                            <label class="etiqueta">Estatus</label>
+                            <select th:field="*{est_usu}" class="entrada" disabled>
+                                <option value=""></option>
+                                <option value="A">Activo</option>
+                                <option value="I">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="contenedor-botones">
+                        <a th:href="@{/usuario_listar}" class="boton-secundario">Cerrar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

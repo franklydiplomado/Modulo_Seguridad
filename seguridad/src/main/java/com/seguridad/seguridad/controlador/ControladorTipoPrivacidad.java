@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.seguridad.seguridad.modelo.TipoPrivacidad;
@@ -57,4 +58,44 @@ public class ControladorTipoPrivacidad {
         }
         return "redirect:/tipo_privacidad_listar";
     }
+
+@GetMapping("/tipo_privacidad_ver")
+public String verTipo(@RequestParam("cod_tip") int cod_tip, Model modelo) {
+    modelo.addAttribute("tipo", tp.buscarTipo(cod_tip));
+    return "tipo_privacidad_ver";
+}
+
+@GetMapping("/tipo_privacidad_editar")
+public String editarTipo(@RequestParam("cod_tip") int cod_tip, Model modelo) {
+    modelo.addAttribute("tipo", tp.buscarTipo(cod_tip));
+    return "tipo_privacidad_editar";
+}
+
+@PostMapping("/tipo_privacidad_editar")
+public String editarTipo(@ModelAttribute("tipo") TipoPrivacidad tipo, RedirectAttributes flash) {
+    try {
+        tp.editarTipo(tipo);
+        flash.addFlashAttribute("exito", "¡Tipo de privacidad modificado exitosamente!");
+    } catch (Exception e) {
+        flash.addFlashAttribute("error", "Ocurrió un error al editar el tipo de privacidad.");
+    }
+    return "redirect:/tipo_privacidad_listar";
+}
+
+@GetMapping("/tipo_privacidad_eliminar")
+public String eliminarTipo(@RequestParam("cod_tip") int cod_tip, RedirectAttributes flash) {
+    try {
+        if (tp.eliminarTipo(cod_tip)) {
+            flash.addFlashAttribute("exito", "El tipo de privacidad fue eliminado correctamente.");
+        } else {
+            flash.addFlashAttribute("error", "El tipo de privacidad no existe o ya fue eliminado.");
+        }
+    } catch (Exception e) {
+        flash.addFlashAttribute("error", "No se pudo eliminar el tipo de privacidad.");
+    }
+    return "redirect:/tipo_privacidad_listar";
+}
+
+
+
 }

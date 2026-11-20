@@ -27,5 +27,24 @@ public class ServicioTipoPrivacidad {
         );
     } 
 
+public TipoPrivacidad buscarTipo(int cod_tip) {
+    return tipoRepositorio.tipo_privacidad_buscar(cod_tip);
+}
+
+public void editarTipo(TipoPrivacidad tipo) {
+    tipoRepositorio.tipo_privacidad_modificar(
+        tipo.getCod_tip(), tipo.getNom_tip(), tipo.getEst_tip());
+}
+
+public boolean eliminarTipo(int cod_tip) {
+    if (tipoRepositorio.tipo_privacidad_buscar(cod_tip) != null) {
+        tipoRepositorio.tipo_privacidad_eliminar(cod_tip);
+        return true;
+    }
+    return false;
+}
+
+
+
 }
 
